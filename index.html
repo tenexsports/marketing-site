@@ -176,11 +176,11 @@
 	
 	<div class="px-4">
 		<div class="mx-auto max-w-da px-4 bg-white dark:bg-slate-950/20 rounded-xl pt-2 pb-6 mb-32 ring ring-8 ring-indigo-100 dark:ring-slate-800/40 shadow dark:shadow-2xl effect">
-			<div class="flex justify-between py-4 relative mb-4 px-2">
+			<div class="flex flex-col items-center md:flex-row justify-between py-4 relative mb-4 px-2">
 				<div class="absolute rounded border text-sm shadow-lg font-medium bg-white z-10 p-4 top-16 dark:bg-slate-900 dark:border-slate-800 dark:text-white hidden js-view-settings">
 					<div class="switches"></div>
 				</div>
-				<div class="flex items-center space-x-2">
+				<div class="flex items-center space-x-2 order-2 md:order-1">
 					<div class="inline-flex rounded border text-sm shadow-sm font-medium items-center space-x-1 px-2 py-1 text-gray-500 hover:text-black hover:shadow dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:text-white js-view-settings-toggle cursor-pointer hover:cursor-pointer">
 						<span>View Settings</span>
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
@@ -194,7 +194,7 @@
 						</svg>
 					</div>
 				</div>
-				<div class="flex items-center rounded-lg bg-white dark:bg-slate-900 border dark:border-slate-700 px-2 js-search">
+				<div class="flex order-1 md:order-2 items-center rounded-lg bg-white dark:bg-slate-900 border dark:border-slate-700 px-2 js-search mb-6 md:mb-0">
 					<input class="bg-transparent flex-grow py-3 px-4 pl-2 text-sm text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search">
 					<kbd class="border dark:border-slate-700 text-gray-400 font-medium px-1.5 rounded text-sm">⌘K</kbd>
 				</div>
