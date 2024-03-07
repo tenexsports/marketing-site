@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TENEX | Safeguarding, Governance, and Membership Management for Clubs and Organisations</title>
+	<meta name="description" content="Purpose-built to help clubs and organisations provide safeguarding for their members, manage governance, and membership registrations">
+	
+	<!-- Facebook Meta Tags -->
+	<meta property="og:url" content="https://www.tenexsports.com">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="TENEX | Safeguarding, Governance, and Membership Management for Clubs and Organisations">
+	<meta property="og:description" content="Purpose-built to help clubs and organisations provide safeguarding for their members, manage governance, and membership registrations">
+	<meta property="og:image" content="https://www.tenexsports.com/img/meta.png">
+	
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="tenexsports.com">
+	<meta property="twitter:url" content="https://www.tenexsports.com">
+	<meta name="twitter:title" content="TENEX | Safeguarding, Governance, and Membership Management for Clubs and Organisations">
+	<meta name="twitter:description" content="Purpose-built to help clubs and organisations provide safeguarding for their members, manage governance, and membership registrations">
+	<meta name="twitter:image" content="https://www.tenexsports.com/img/meta.png">
+	
+	<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<script>
+		// Tailwind Config stuff
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						// 'da-grey-light': '#DADADA',
+						// 'da-grey-dark': '#222'
+					},
+					fontFamily: {
+						sans: ['Inter var'],
+					},
+					maxWidth: {
+						'da': '96.5em', // Replace with your value
+					},
+					gap: {
+						'da': '1.62rem',
+					},
+					spacing: {
+						'm': '1.19em',
+						'bl': '1.88em',
+						'l': '3em',
+						'xl': '4.81em',
+						'super-xl': '7.75em',
+						'super-duper': '12.56em',
+					}
+				},
+			},
+		}
+	</script>
+	<style>
+		body {
+			/* font-family: @apply font-inter; */
+			font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: greyscale;
+		}
+
+		.js-search.active {
+			@apply ring-2 ring-blue-500;
+		}
+
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		.no-scrollbar::-webkit-scrollbar {
+			display: none;
+		}
+
+		/* Hide scrollbar for IE, Edge and Firefox */
+		.no-scrollbar {
+			-ms-overflow-style: none;
+			/* IE and Edge */
+			scrollbar-width: none;
+			/* Firefox */
+		}
+
+		/* Switch Styles */
+
+		.switch {
+			width: 40px;
+			height: 20px;
+			display: inline-block;
+		}
+
+		.switch input {
+			display: none;
+		}
+
+		.switch .slider {
+			position: absolute;
+			background-color: #ff6562;
+			width: inherit;
+			height: inherit;
+			border-radius: 34px;
+			cursor: pointer;
+		}
+
+		.switch .slider:before {
+			position: absolute;
+			content: "";
+			height: 20px;
+			width: 20px;
+			border-radius: 50px;
+			background-color: #fff;
+		}
+
+		.switch input:checked+.slider {
+			background-color: #00c07f;
+		}
+
+		.switch input:checked+.slider:before {
+			-webkit-transform: translateX(20px);
+			transform: translateX(20px);
+		}
+
+		.effect {
+			opacity: 0;
+			transition: opacity 0.4s cubic-bezier(.33, 1, .68, 1), transform 0.4s cubic-bezier(.33, 1, .68, 1);
+			transform: translateY(1rem) scale(1.05);
+		}
+
+		.effect.active {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.effect-delay {
+			transition-delay: 75ms;
+		}
+
+		.effect-delay-1 {
+			transition-delay: 150ms;
+		}
+
+		.effect-delay-2 {
+			transition-delay: 225ms;
+		}
+
+		.effect-delay-3 {
+			transition-delay: 300ms;
+		}
+
+		.effect-delay-4 {
+			transition-delay: 375ms;
+		}
+
+		.effect-delay-5 {
+			transition-delay: 450ms;
+		}
+
+		.effect-delay-6 {
+			transition-delay: 525ms;
+		}
+
+		.effect-delay-7 {
+			transition-delay: 600ms;
+		}
+
+		.effect-delay-8 {
+			transition-delay: 675ms;
+		}
+
+		.effect-delay-9 {
+			transition-delay: 750ms;
+		}
+	</style>
+</head>
+
+<body class="bg-indigo-50 dark:bg-slate-900 dark:text-white">
+
+
+	<div class="mx-auto max-w-[1287px] text-center px-4 py-12 border-b dark:border-slate-800 mb-32">
+		<img src="img/logo.svg" alt="TENEX logo" class="inline dark:hidden">
+		<img src="img/logo-white.svg" alt="TENEX logo" class="hidden dark:inline">
+	</div>
+	<div class="mx-auto max-w-[1287px] lg:grid grid-cols-9 px-4">
+		<p class="text-center col-span-full mb-4 font-semibold text-indigo-600 dark:text-indigo-500 text-lg">Reclaim Your Time</p>
+		<h1 class="text-center font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight md:tracking-tight lg:tracking-tight lg:col-start-2 col-span-7 mb-4 leading-tight">Club Membership Management, Registrations and Payments <span class="underline">Simplified</span>.</h1>
+		<p class="col-span-5 col-start-3 text-center opacity-60 text-xl mb-10">We save, on average, 86 hours of administration time across a year. Our aim is to take the burden out of running clubs and organisations.</p>
+		<div class="col-span-full text-center mb-24">
+			<div class="cursor-pointer hover:cursor-pointer inline-block transition-all hover:scale-105" data-tf-live="01HKYNTHVTYQNWW6V0PGMH737F"></div><script src="//embed.typeform.com/next/embed.js"></script>
+		</div>
+	</div>
+	
+	
+	<!-- Start of table demo -->
+	
+	<div class="px-4">
+		<div class="mx-auto max-w-da px-4 bg-white dark:bg-slate-950/20 rounded-xl pt-2 pb-6 mb-32 ring ring-8 ring-indigo-100 dark:ring-slate-800/40 shadow dark:shadow-2xl effect">
+			<div class="flex flex-col items-center md:flex-row justify-between py-4 relative mb-4 px-2">
+				<div class="absolute rounded border text-sm shadow-lg font-medium bg-white z-10 p-4 top-16 dark:bg-slate-900 dark:border-slate-800 dark:text-white hidden js-view-settings">
+					<div class="switches"></div>
+				</div>
+				<div class="flex items-center space-x-2 order-2 md:order-1">
+					<div class="inline-flex rounded border text-sm shadow-sm font-medium items-center space-x-1 px-2 py-1 text-gray-500 hover:text-black hover:shadow dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:text-white js-view-settings-toggle cursor-pointer hover:cursor-pointer">
+						<span>View Settings</span>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+							<path d="M6.5 2.25a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0V4.5h6.75a.75.75 0 0 0 0-1.5H6.5v-.75ZM11 6.5a.75.75 0 0 0-1.5 0v3a.75.75 0 0 0 1.5 0v-.75h2.25a.75.75 0 0 0 0-1.5H11V6.5ZM5.75 10a.75.75 0 0 1 .75.75v.75h6.75a.75.75 0 0 1 0 1.5H6.5v.75a.75.75 0 0 1-1.5 0v-3a.75.75 0 0 1 .75-.75ZM2.75 7.25H8.5v1.5H2.75a.75.75 0 0 1 0-1.5ZM4 3H2.75a.75.75 0 0 0 0 1.5H4V3ZM2.75 11.5H4V13H2.75a.75.75 0 0 1 0-1.5Z"></path>
+						</svg>
+					</div>
+					<div class="inline-flex rounded border text-sm shadow-sm font-medium items-center space-x-1 px-2 py-1 text-gray-500 hover:text-black hover:shadow dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:text-white cursor-pointer hover:cursor-pointer">
+						Bulk Actions
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+							<path d="M8 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM8 6.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM9.5 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"></path>
+						</svg>
+					</div>
+				</div>
+				<div class="flex order-1 md:order-2 items-center rounded-lg bg-white dark:bg-slate-900 border dark:border-slate-700 px-2 js-search mb-6 md:mb-0">
+					<input class="bg-transparent flex-grow py-3 px-4 pl-2 text-sm text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search">
+					<kbd class="border dark:border-slate-700 text-gray-400 font-medium px-1.5 rounded text-sm">⌘K</kbd>
+				</div>
+			</div>
+		
+		
+		
+			<div class="overflow-x-auto whitespace-nowrap">
+				<table class="table-fixed border-collapse w-full dark:text-white">
+					<thead class="text-left">
+						<tr>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-8"><input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"></th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-48">
+								<div class="inline-flex space-x-0.5 items-center dark:text-white/40">
+									<span>Name</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+										<path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-64 dark:text-white/40">Email</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-72 dark:text-white/40" data-hidden="true" style="display: none;">Address</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-32 dark:text-white/40" data-hidden="true" style="display: none;">Date of Birth</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-48 dark:text-white/40">Tags</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-44 dark:text-white/40">
+								<div class="inline-flex space-x-0.5 items-center dark:text-white/40">
+									<span>Role</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+										<path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-40" data-hidden="true">
+								<div class="inline-flex space-x-0.5 items-center dark:text-white/40">
+									<span>Squad</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+										<path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-40 dark:text-white/40" >Qualifications</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-64" data-hidden="true" style="display: none;">
+								<div class="inline-flex space-x-0.5 items-center dark:text-white/40">
+									<span>Created</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+										<path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-44">
+								<div class="inline-flex space-x-0.5 items-center dark:text-white/40">
+									<span>Membership</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+										<path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</th>
+							<th class="border-b-2 border-gray-250 dark:border-slate-700/20 p-3 font-medium text-sm w-56">
+								<div class="inline-flex space-x-0.5 items-center dark:text-white/40">
+									<span>Membership Status</span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+										<path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+									</svg>
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody class="text-left">
+						<tr class="effect ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+									<div>
+										<span class="block font-medium text-sm">Ryan Clifton</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline hover:no-underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">rclifton@clubroversfc.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 relative">
+								<div class="overflow-x-auto whitespace-nowrap no-scrollbar">
+									<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">team captain</span>
+									<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">driver</span>
+									<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">admin</span>
+								</div>
+								<div class="right-2 top-0 bottom-0 w-4 absolute h-14 bg-gradient-to-r from-transparent to-white dark:to-slate-900 z-10"></div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Coach</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;">
+								<div class="inline-flex space-x-2">
+									<div class="relative">
+										<span class="inline-flex items-center rounded-md bg-yellow-50 dark:bg-yellow-300/20 px-1 py-1 text-xs font-medium text-yellow-700 dark:text-yellow-300 ring-1 ring-inset ring-yellow-600/20 dark:ring-yellow-400/20 space-x-0.5">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+												<path fill-rule="evenodd" d="M9.661 2.237a.531.531 0 0 1 .678 0 11.947 11.947 0 0 0 7.078 2.749.5.5 0 0 1 .479.425c.069.52.104 1.05.104 1.59 0 5.162-3.26 9.563-7.834 11.256a.48.48 0 0 1-.332 0C5.26 16.564 2 12.163 2 7c0-.538.035-1.069.104-1.589a.5.5 0 0 1 .48-.425 11.947 11.947 0 0 0 7.077-2.75Zm4.196 5.954a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+											</svg>
+										</span>
+										<!-- <div class="absolute bg-slate-900 text-white font-medium text-sm px-2 py-1 rounded before:h-0 before:w-0 before:border-x-4 before:border-x-transparent before:border-b-[4px] before:border-b-slate-900 before:absolute before:-top-1 before:left-1/2 before:-translate-x-1/2 -left-1/2 -bottom-14 -ml-1/2">
+									<p>Police Vetted</p>
+									<p class="text-xs opacity-60">Expires 10 Jan 2025</p>
+								</div> -->
+									</div>
+									<span class="inline-flex items-center rounded-md bg-teal-50 dark:bg-teal-400/20 px-1 py-1 text-xs font-medium text-teal-700 dark:text-teal-400 ring-1 ring-inset ring-teal-600/20 space-x-0.5">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+											<path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+										</svg>
+		
+									</span>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56">
+								<span class="inline-flex items-center rounded-md bg-red-50 dark:bg-red-500/20 px-2 py-1 text-xs font-medium text-red-700 dark:text-red-500 ring-1 ring-inset ring-red-600/20 space-x-0.5">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"></path>
+									</svg>
+									<span>Expired</span>
+								</span>
+							</td>
+						</tr>
+						<tr class="effect effect-delay ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://tailwindui.com/img/benbarbersmith-profile.jpeg" alt="">
+									<div>
+										<span class="block font-medium text-sm">Kevin Smith</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Player</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-1 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2.25&amp;w=256&amp;h=256&amp;q=80" alt="">
+									<div>
+										<span class="block font-medium text-sm">Sean Cahill</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto">
+								<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">driver</span>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Player</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-2 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<span class="inline-flex h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 bg-sky-500 text-white text-xs font-semibold items-center justify-center"><span>JK</span></span>
+									<div>
+										<span class="block font-medium text-sm">Jessica Keane</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto">
+								<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">new start</span>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Player</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-3 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+									<div>
+										<span class="block font-medium text-sm">Claire McDonald</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto">
+								<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">driver</span>
+								<span class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium text-gray-500 ring-1 ring-inset ring-gray-500/10">admin</span>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Player</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-4 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<span class="inline-flex h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 bg-sky-500 text-white text-xs font-semibold items-center justify-center"><span>MH</span></span>
+									<div>
+										<span class="block font-medium text-sm">Mark Holmes</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Player</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-5 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://mighty.tools/mockmind-api/content/human/42.jpg" alt="">
+									<div>
+										<span class="block font-medium text-sm">Trevor Woods</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Club Director</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;">
+								<div class="inline-flex space-x-2">
+									<span class="inline-flex items-center rounded-md bg-teal-50 dark:bg-teal-400/20 px-1 py-1 text-xs font-medium text-teal-700 dark:text-teal-400 ring-1 ring-inset ring-teal-600/20 space-x-0.5">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+											<path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"></path>
+										</svg>
+		
+									</span>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-6 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://mighty.tools/mockmind-api/content/human/66.jpg" alt="">
+									<div>
+										<span class="block font-medium text-sm">Mary McDermot</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">
+								<span>Parent/Guardian</span>
+								<span class="flex space-x-1 items-center text-xs opacity-60">
+									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+									  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"></path>
+									</svg>
+		
+									<span class="underline">Mark Holmes</span>
+								</span>
+		
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-7 ">
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<span class="inline-flex h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900 bg-sky-500 text-white text-xs font-semibold items-center justify-center"><span>KS</span></span>
+									<div>
+										<span class="block font-medium text-sm">Katie Shaw</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-48 whitespace-nowrap overflow-x-auto"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Player</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40">First Team</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-40" style="display: none;"></td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-44">Full Member</td>
+							<td class="border-b border-gray-250 dark:border-slate-700/20 p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+						<tr class="effect effect-delay-8 ">
+							<td class="p-3">
+								<input id="" aria-describedby="" name="" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+							</td>
+							<td class="p-3 w-48">
+								<div class="flex space-x-3 overflow-hidden items-center">
+									<img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-slate-900" src="https://mighty.tools/mockmind-api/content/human/75.jpg" alt="">
+									<div>
+										<span class="block font-medium text-sm">Kevin Smith</span>
+										<span class="block opacity-40 text-xs">187236</span>
+									</div>
+								</div>
+							</td>
+							<td class="p-3 w-64"><a href="mailto:jordan.moore@dawsonandrews.com" class="underline text-xs text-blue-600 dark:text-sky-500 font-medium overflow-hidden text-ellipsis">jordan.moore@dawsonandrews.com</a></td>
+							<td class="p-3 text-sm opacity-60 w-80" style="display: none;">123 Fake Street, Anytown</td>
+							<td class="p-3 text-sm w-32" style="display: none;">13/06/1985</td>
+							<td class="p-3 text-sm w-48 whitespace-nowrap overflow-x-auto"></td>
+							<td class="p-3 text-sm w-44">Player</td>
+							<td class="p-3 text-sm w-40">First Team</td>
+							<td class="p-3 text-sm w-40" style="display: none;"></td>
+							<td class="p-3 text-sm w-64" style="display: none;">Wednesday, 10 January 2024</td>
+							<td class="p-3 text-sm w-44">Full Member</td>
+							<td class="p-3 text-sm w-56"><span class="inline-flex items-center rounded-md bg-green-50 dark:bg-green-900/20 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-600 ring-1 ring-inset ring-green-600/20">Fully Paid</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			
+		
+		</div>
+	</div>
+	
+	<!-- End of table demo -->
+	
+	<div class="mx-auto max-w-[1287px] px-4 mb-10">
+		<h3 class="font-semibold text-4xl text-center">Get started in a few minutes&hellip;</h3>
+	</div>
+	<div class="mx-auto max-w-[1287px] flex flex-col sm:flex-row align-center justify-between gap-x-da mb-16 px-4">
+		<div class="rounded-2xl border border-indigo-200 mb-4 sm:mb-0 sm:w-1/3 p-6 dark:bg-transparent dark:border-slate-800 hover:scale-105 transition-all">
+			<span class="rounded-full border border-indigo-600 text-indigo-800 font-bold inline-block text-center w-10 h-10 leading-10 mb-4 dark:text-indigo-400 dark:border-indigo-600">1</span>
+			<p class="text-lg font-semibold">Find or Create Your Club</p>
+			<p class="opacity-60">Either find your club from our extensive database of sports, leagues and competitions, or add your own</p>
+		</div>
+		<div class="rounded-2xl border border-indigo-200 mb-4 sm:mb-0 sm:w-1/3 p-6 dark:bg-transparent dark:border-slate-800 hover:scale-105 transition-all">
+			<span class="rounded-full border border-indigo-600 text-indigo-800 font-bold inline-block text-center w-10 h-10 leading-10 mb-4 dark:text-indigo-400 dark:border-indigo-600">2</span>
+			<p class="text-lg font-semibold">Add Your Members</p>
+			<p class="opacity-60">Quickly add or import the members from your club as well as any membership packages available to them</p>
+		</div>
+		<div class="rounded-2xl border border-indigo-200 mb-4 sm:mb-0 sm:w-1/3 p-6 dark:bg-transparent dark:border-slate-800 hover:scale-105 transition-all">
+			<span class="rounded-full border border-indigo-600 text-indigo-800 font-bold inline-block text-center w-10 h-10 leading-10 mb-4 dark:text-indigo-400 dark:border-indigo-600">3</span>
+			<p class="text-lg font-semibold">Start Taking Payments</p>
+			<p class="opacity-60">And that's it! You're now ready to take payments, send renewal reminders, and keep track of any expired memberships</p>
+		</div>
+	</div>
+	<div class="col-span-full text-center mb-48">
+		<div class="cursor-pointer hover:cursor-pointer transition-all hover:scale-105" data-tf-live="01HKYNTHVTYQNWW6V0PGMH737F"></div><script src="//embed.typeform.com/next/embed.js"></script>
+	</div>
+	
+	<div class="mx-auto max-w-[1287px] px-4 mb-8">
+		<h3 class="font-semibold text-2xl text-center">Built specifically with<br>membership organisations in mind&hellip;</h3>
+	</div>
+	<div class="mx-auto max-w-[1287px] flex flex-col md:flex-row align-center justify-between gap-x-da px-4">
+		<div class="md:w-1/4 p-6 effect transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+			</svg>
+
+
+			<p class="text-lg font-medium">Talk to your members</p>
+			<p class="opacity-60">Effortlessly communicate with members, lists and groups</p>
+		</div>
+		<div class="md:w-1/4 p-6 effect effect-delay transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z" />
+			</svg>
+
+
+			<p class="text-lg font-medium">Tagging</p>
+			<p class="opacity-60">Add tags and notes to members for easily referencing later</p>
+		</div>
+		<div class="md:w-1/4 p-6 effect effect-delay-1 transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 0 1 0 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 0 1 0-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375Z" />
+			</svg>
+
+			<p class="text-lg font-medium">Membership Packages</p>
+			<p class="opacity-60">Create membership packages for your members to buy</p>
+		</div>
+		<div class="md:w-1/4 p-6 effect effect-delay-2 transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+			</svg>
+
+
+			<p class="text-lg font-medium">Payments</p>
+			<p class="opacity-60">Set up and start receiving payments within minutes</p>
+		</div>
+	</div>
+	<div class="mx-auto max-w-[1287px] flex flex-col md:flex-row align-center justify-between gap-x-da px-4">
+		<div class="md:w-1/4 p-6 effect transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+			</svg>
+
+			<p class="text-lg font-medium">Powerful Filters</p>
+			<p class="opacity-60">Search and filter to find what you're looking for in no time</p>
+		</div>
+		<div class="md:w-1/4 p-6 effect effect-delay transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />
+			</svg>
+
+			<p class="text-lg font-medium">Automatic Flagging</p>
+			<p class="opacity-60">Auto-highlighting of members that need your attention</p>
+		</div>
+		<div class="md:w-1/4 p-6 effect effect-delay-1 transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122" />
+			</svg>
+
+			<p class="text-lg font-medium">Bulk Actions</p>
+			<p class="opacity-60">Cut out hours of admin with bulk actions on multiple members</p>
+		</div>
+		<div class="md:w-1/4 p-6 effect effect-delay-2 transition-all rounded-lg hover:bg-indigo-100/60 dark:hover:bg-slate-800/40">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-2 text-indigo-500">
+			  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+			</svg>
+
+			<p class="text-lg font-medium"><span class="mr-1">Calendar</span> <span class="relative -top-px rounded border border-indigo-600 text-indigo-600 dark:text-indigo-400 dark:border-indigo-400 font-semibold text-xs px-1 py-0.5">Coming Soon</span></p>
+			<p class="opacity-60">Create events, send RSVPs, and view on a club calendar</p>
+		</div>
+	</div>
+	
+	<div class="mx-auto max-w-[1287px] text-center pt-24 pb-64 border-t dark:border-slate-800 mt-32">
+		<p class="opacity-40">TENEX was built by people who love grassroots sport and all of its volunteers who make it happen.</p>
+		<p class="opacity-40">&copy; TENEX Sports 2024</p>
+		<p class="inline-flex items-center gap-x-2 my-4">
+			<span class="text-sm transition-all hover:scale-125 opacity-50 hover:opacity-100 ease-in-out">🎾</span> 
+			<span class="transition-all hover:scale-125 opacity-50 hover:opacity-100 ease-in-out">⚽️</span>
+			 <span class="text-3xl transition-all hover:scale-125 opacity-50 hover:opacity-100 ease-in-out">❤️</span> 
+			 <span class="transition-all hover:scale-125 opacity-50 hover:opacity-100 ease-in-out">🏉</span> 
+			 <span class="text-sm transition-all hover:scale-125 opacity-50 hover:opacity-100 ease-in-out">🏐</span></p>
+	</div>
+	
+	
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			// Get the toggle button and the settings div
+			var settingsToggle = document.querySelector('.js-view-settings-toggle');
+			var viewSettings = document.querySelector('.js-view-settings');
+
+			// Add a click event listener to the toggle button
+			settingsToggle.addEventListener('click', function() {
+				// Toggle the 'hidden' class on the settings div
+				viewSettings.classList.toggle('hidden');
+			});
+		});
+
+		var switches = document.querySelector('.switches');
+
+		document.querySelectorAll('th').forEach(function(th, index) {
+			if (index === 0) return; // Skip the first column
+			var hide, label, checkbox, switchDiv, text;
+			index = index + 1;
+			hide = th.getAttribute('data-hidden') === 'true';
+
+			// Create switch components with Tailwind classes
+			label = document.createElement('label');
+			label.className = 'relative flex items-center mb-2 cursor-pointer hover:cursor-pointer';
+
+			checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.value = index;
+			checkbox.className = 'sr-only peer';
+			checkbox.checked = !hide;
+
+			// Set the initial visibility of the columns
+			setColumnVisibility(index, !hide);
+
+			// Add event listener to toggle column visibility
+			checkbox.addEventListener('change', function() {
+				setColumnVisibility(this.value, this.checked);
+			});
+
+			switchDiv = document.createElement('div');
+			switchDiv.className = 'w-7 h-4 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[""] after:absolute after:top-[4px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600';
+
+			text = document.createElement('span');
+			text.className = 'ms-2 mr-4 text-sm font-medium';
+			text.textContent = th.textContent;
+
+			// Append elements to create the switch structure
+			label.appendChild(checkbox);
+			label.appendChild(switchDiv);
+			label.appendChild(text);
+
+			// Append the switch to the switches container
+			switches.appendChild(label);
+		});
+
+		// Function to set column visibility
+		function setColumnVisibility(index, isVisible) {
+			var displayStyle = isVisible ? '' : 'none';
+			document.querySelectorAll('th:nth-child(' + index + '), td:nth-child(' + index + ')').forEach(function(el) {
+				el.style.display = displayStyle;
+			});
+		}
+
+		window.addEventListener('scroll', function() {
+			// Get the current scroll position
+			var scroll = window.scrollY || document.documentElement.scrollTop;
+
+			// Spotlight contents
+			// Select elements with class 'effect' and loop through them
+			var effects = document.querySelectorAll('.effect');
+			effects.forEach(function(element) {
+				// Check if the element is in the viewport
+				if (element.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+					// Add class 'active' if the element is in the viewport
+					element.classList.add('active');
+				}
+			});
+		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			// Get the input element and its parent
+			var searchInput = document.getElementById('search');
+			var searchContainer = searchInput.closest('.js-search');
+
+			// Add 'active' class to the parent div when the input is focused
+			searchInput.addEventListener('focus', function() {
+				searchContainer.classList.add('ring-4');
+				searchContainer.classList.add('ring-blue-100');
+				searchContainer.classList.add('border-blue-700');
+			});
+
+			// Remove 'active' class from the parent div when the input loses focus
+			searchInput.addEventListener('blur', function() {
+				searchContainer.classList.remove('ring-4');
+				searchContainer.classList.remove('ring-blue-100');
+				searchContainer.classList.remove('border-blue-700');
+			});
+		});
+	</script>
+	<!-- Start of Async Drift Code -->
+	<script>
+	"use strict";
+	
+	!function() {
+	  var t = window.driftt = window.drift = window.driftt || [];
+	  if (!t.init) {
+		if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+		t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+		t.factory = function(e) {
+		  return function() {
+			var n = Array.prototype.slice.call(arguments);
+			return n.unshift(e), t.push(n), t;
+		  };
+		}, t.methods.forEach(function(e) {
+		  t[e] = t.factory(e);
+		}), t.load = function(t) {
+		  var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+		  o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+		  var i = document.getElementsByTagName("script")[0];
+		  i.parentNode.insertBefore(o, i);
+		};
+	  }
+	}();
+	drift.SNIPPET_VERSION = '0.3.1';
+	drift.load('rpvnk5nv93p9');
+	</script>
+	<!-- End of Async Drift Code -->
+</body>
+
+</html>
